@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: my-mc-ingress
+spec:
+  tls:
+  - secretName: my-first-secret
+  - secretName: my-second-secret
+  rules:
+  - host: kube1.minikube.com
+    http:
+      paths:
+      - backend:
+          serviceName: my-mc-service1
+          servicePort: my-first-port1
+  - host: kube2.minikube.com
+    http:
+      paths:
+      - backend:
+          serviceName: my-mc-service2
+          servicePort: my-second-port2

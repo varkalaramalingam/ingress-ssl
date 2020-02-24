@@ -1,0 +1,13 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: custom
+  namespace: custom
+spec:
+  rules:
+  - host: custom.minikube.com
+    http:
+      paths:
+      - backend:
+          serviceName: custom
+          servicePort: 80
