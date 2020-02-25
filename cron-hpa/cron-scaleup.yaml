@@ -1,0 +1,21 @@
+#deployment.apps/my-mc-deployment1
+#
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: scale-up
+spec:
+  schedule: "09 13 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: scale
+            image: ramalingam81/kubectl-c-e-minikube
+            command:
+            - kubectl
+            - scale
+            - --replicas=8
+            - deployment.apps/my-mc-deployment1
+          restartPolicy: OnFailure

@@ -1,0 +1,1 @@
+fisrt you need create a docker image which have kubectl installed and able to connect to your cluster
